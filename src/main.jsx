@@ -1,15 +1,16 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
-import App from "./App.jsx";
-import Practice from "./component/Contoh.jsx";
-import ShoppingApp from "./component/ShoppingApp.jsx";
+import Router from "./Router.jsx";
+import AuthProvider from "./component/contexts/AuthProvider.jsx";
+import CounterProvider from "./component/contexts/counter/CounterProvider.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    {/* <App /> */}
-    {/* <Practice /> */}
-    <ShoppingApp />
-    {/* <h1>testing</h1> */}
+    <AuthProvider>
+      <CounterProvider>
+        <Router />
+      </CounterProvider>
+    </AuthProvider>
   </StrictMode>
 );
